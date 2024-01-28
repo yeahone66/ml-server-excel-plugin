@@ -27,4 +27,10 @@ module.exports = function (config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: 
+    logLevel: config.LOG_INFO,
+    autoWatch: true,
+    // If you want to run
+    browsers: ['Chrome', 'Firefox', 'IE'],
+    singleRun: false
+  });
+};
