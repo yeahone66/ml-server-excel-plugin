@@ -7,4 +7,7 @@ import { AzureCallback } from './services/azure-callback.service';
 
 export const rootRouterConfig: Routes = [
     { path: '', component: AuthAzureComponent },
-    { path: 'id_token', component: WebServices
+    { path: 'id_token', component: WebServicesComponent, canActivate: [AzureCallback] },
+    { path: 'auth-admin', component: AuthAdminComponent },
+    { path: 'web-services', component: WebServicesComponent, canActivate: [AuthGuard] }
+];

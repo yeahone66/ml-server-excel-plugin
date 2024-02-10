@@ -1,0 +1,139 @@
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto; }
+
+body {
+  position: relative;
+  font-size: 16px; }
+
+main {
+  height: 100%;
+  overflow-y: auto; }
+
+footer {
+  width: 100%;
+  position: relative;
+  bottom: 0; }
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  padding: 0; }
+
+.clearfix {
+  display: block;
+  clear: both;
+  height: 0; }
+
+.pointerCursor {
+  cursor: pointer; }
+
+.invisible {
+  visibility: hidden; }
+
+.undisplayed {
+  display: none; }
+
+.ms-Icon.enlarge {
+  position: relative;
+  font-size: 20px;
+  top: 4px; }
+
+.ms-firstrun-trial-feature {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  height: 100%; }
+  .ms-firstrun-trial-feature__main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+    -webkit-flex: 1 1 0;
+            flex: 1 1 0;
+    height: 100%; }
+  .ms-firstrun-trial-feature__header {
+    border-bottom: solid 2px #0078d7;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-align-items: center;
+            align-items: center;
+    padding-left: 0px;
+    padding-right: 0px; }
+    .ms-firstrun-trial-feature__header--left {
+      transition: background ease 0.1s, color ease 0.1s;
+      padding: 4px 20px;
+      cursor: pointer; }
+      .ms-firstrun-trial-feature__header--left:active, .ms-firstrun-trial-feature__header--left:hover {
+        background: #eff6fc;
+        cursor: pointer; }
+      .ms-firstrun-trial-feature__header--left:active {
+        background: #eff6fc;
+        -webkit-transform: scale3d(0.98, 0.98, 1);
+                transform: scale3d(0.98, 0.98, 1); }
+      .ms-firstrun-trial-feature__header--left--disabled {
+        opacity: 0.6;
+        pointer-events: none;
+        cursor: not-allowed; }
+        .ms-firstrun-trial-feature__header--left--disabled:active, .ms-firstrun-trial-feature__header--left--disabled:hover {
+          background: transparent; }
+        .ms-firstrun-trial-feature__header--left--disabled:active {
+          -webkit-transform: none;
+                  transform: none; }
+    .ms-firstrun-trial-feature__header--right {
+      -webkit-flex: 1 0 0px;
+              flex: 1 0 0px;
+      display: -webkit-inline-flex;
+      display: inline-flex;
+      -webkit-justify-content: center;
+              justify-content: center;
+      -webkit-align-items: center;
+              align-items: center; }
+      .ms-firstrun-trial-feature__header--right p {
+        -webkit-flex: 1 0 0px;
+                flex: 1 0 0px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: center;
+        cursor: pointer;
+        transition: background ease 0.1s, color ease 0.1s; }
+        .ms-firstrun-trial-feature__header--right p:active, .ms-firstrun-trial-feature__header--right p:hover {
+          background: #eff6fc;
+          cursor: pointer; }
+        .ms-firstrun-trial-feature__header--right p:active {
+          background: #eff6fc;
+          -webkit-transform: scale3d(0.98, 0.98, 1);
+                  transform: scale3d(0.98, 0.98, 1); }
+        .ms-firstrun-trial-feature__header--right p--disabled {
+          opacity: 0.6;
+          pointer-events: none;
+          cursor: not-allowed; }
+          .ms-firstrun-trial-feature__header--right p--disabled:active, .ms-firstrun-trial-feature__header--right p--disabled:hover {
+            background: transparent; }
+          .ms-firstrun-trial-feature__header--right p--disabled:active {
+            -webkit-transform: none;
+                    transform: none; }
+        .ms-firstrun-trial-feature__header--right p:last-child {
+          border-right: none; }
+    .ms-firstrun-trial-feature__header--selected, .ms-Pivot-link.is-selected {
+      background-color: #daeaf8; }
+  .ms-firstrun-trial-feature__content {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    -webkit-flex-wrap: nowrap;
