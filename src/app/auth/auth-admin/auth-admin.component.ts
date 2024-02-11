@@ -12,4 +12,19 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AuthAdminComponent implements OnInit {
 
-  pu
+  public authenticated = false;
+  public config: {
+    connection: string,
+    username: string,
+    password: string
+  };
+  public error: boolean;
+  public errorMessage: string;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.error = false;
+  }
+
+  ngOnInit() {
+    this.config = {
+      connecti
