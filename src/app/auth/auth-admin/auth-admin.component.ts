@@ -38,4 +38,16 @@ export class AuthAdminComponent implements OnInit {
   // If authentication is successful, reroutes user to web-services
   // Otherwise, user is shown an appropriate error message
   onSubmit(form: NgForm) {
-    this.authService.loginAdmin(form.value.connection, f
+    this.authService.loginAdmin(form.value.connection, form.value.username, form.value.password)
+      .subscribe(
+      (data: any) => {
+        // Correctly authenticated, redirect page
+        this.error = false;
+        this.authenticated = true;
+        this.router.navigate(['/web-services']);
+
+      },
+      (error) => {
+        // Show user error message
+        this.errorMessage = error;
+        this.error 
