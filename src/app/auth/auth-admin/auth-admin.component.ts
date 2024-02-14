@@ -50,4 +50,9 @@ export class AuthAdminComponent implements OnInit {
       (error) => {
         // Show user error message
         this.errorMessage = error;
-        this.error 
+        this.error = true;
+      }
+      );
+  }
+
+}
