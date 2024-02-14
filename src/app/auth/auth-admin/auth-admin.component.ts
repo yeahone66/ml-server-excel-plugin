@@ -27,4 +27,15 @@ export class AuthAdminComponent implements OnInit {
 
   ngOnInit() {
     this.config = {
-      connecti
+      connection: '',
+      username: '',
+      password: ''
+    };
+  }
+
+  // Called when the user submits for authentication
+  // Sends a HTTP GET to the specified connection
+  // If authentication is successful, reroutes user to web-services
+  // Otherwise, user is shown an appropriate error message
+  onSubmit(form: NgForm) {
+    this.authService.loginAdmin(form.value.connection, f
