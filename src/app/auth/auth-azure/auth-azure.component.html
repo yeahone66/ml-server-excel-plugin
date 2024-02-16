@@ -33,4 +33,19 @@
         <i class="ms-Icon ms-Icon--ErrorBadge"></i>
       </div>
       <div class="ms-MessageBar-text">
-        Please enter valid cre
+        Please enter valid credentials
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+    <div class="ms-MessageBar-content">
+      <div class="ms-MessageBar-icon">
+        <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+      </div>
+      <div id="error" class="ms-MessageBar-text">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</section>
