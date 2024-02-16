@@ -18,4 +18,13 @@
         />
       </p>
       <p class="ms-firstrun-trial-feature__input ">
-        <label for="resourc
+        <label for="resource">Resource</label>
+        <input id="resource" class="input__username" type="text" name="resource" required [ngModel]="config.resource" #resource="ngModel"
+        />
+      </p>
+      <button class="input__submit" type="submit" [disabled]="!f.valid">Login</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="(!tena
