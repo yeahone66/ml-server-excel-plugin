@@ -27,4 +27,10 @@
   </div>
   <br>
   <br>
-  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="(!tena
+  <div class="ms-MessageBar ms-MessageBar--error" *ngIf="(!tenant.valid && tenant.touched) || (!clientid.valid && clientid.touched) || (!resource.valid && resource.touched) || (!connection.valid && connection.touched)">
+    <div class="ms-MessageBar-content">
+      <div class="ms-MessageBar-icon">
+        <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+      </div>
+      <div class="ms-MessageBar-text">
+        Please enter valid cre
