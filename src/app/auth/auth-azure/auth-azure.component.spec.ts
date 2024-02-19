@@ -15,4 +15,16 @@ import { AuthService } from '../../services/auth.service';
 import { MlsService } from '../../services/mls.service';
 
 // Integration tests for AAD component
-describe('AuthAzureComponent', function
+describe('AuthAzureComponent', function () {
+  let comp: AuthAzureComponent;
+  let fixture: ComponentFixture<AuthAzureComponent>;
+  let authService: AuthService;
+  let mlsService: MlsService;
+
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [AuthAzureComponent],
+      imports: [HttpModule, FormsModule, RouterTestingModule],
+      providers: [
+        
