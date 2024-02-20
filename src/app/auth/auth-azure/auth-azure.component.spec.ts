@@ -27,4 +27,15 @@ describe('AuthAzureComponent', function () {
       declarations: [AuthAzureComponent],
       imports: [HttpModule, FormsModule, RouterTestingModule],
       providers: [
-        
+        { provide: AuthService, useClass: AuthServiceStub },
+        { provide: MlsService, useClass: MlsServiceStub }
+      ]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AuthAzureComponent);
+    comp = fixture.componentInstance;
+    authService = TestBed.get(AuthService);
+    mlsService = TestBed.get(
