@@ -38,4 +38,14 @@ describe('AuthAzureComponent', function () {
     fixture = TestBed.createComponent(AuthAzureComponent);
     comp = fixture.componentInstance;
     authService = TestBed.get(AuthService);
-    mlsService = TestBed.get(
+    mlsService = TestBed.get(MlsService);
+    fixture.detectChanges();
+  });
+
+  it('should create component', () => expect(comp).toBeDefined());
+
+  it('should successfully submit form', () => {
+    spyOn(comp, 'login').and.callThrough();
+    const el: HTMLElement = fixture.nativeElement;
+    el.querySelector('#connection').nodeValue = 'test_connection';
+    el.querySelector('#tenant').nodeVal
