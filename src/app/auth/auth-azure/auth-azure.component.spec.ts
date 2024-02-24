@@ -48,4 +48,13 @@ describe('AuthAzureComponent', function () {
     spyOn(comp, 'login').and.callThrough();
     const el: HTMLElement = fixture.nativeElement;
     el.querySelector('#connection').nodeValue = 'test_connection';
-    el.querySelector('#tenant').nodeVal
+    el.querySelector('#tenant').nodeValue = 'test_tenant';
+    el.querySelector('#clientid').nodeValue = 'test_clientid';
+    el.querySelector('#resource').nodeValue = 'test_resource';
+    const button = fixture.debugElement.query(By.css('button'));
+    button.nativeElement.click();
+    fixture.detectChanges();
+    expect(comp.login).toHaveBeenCalled();
+  });
+
+  it('should receive error from form submission'
