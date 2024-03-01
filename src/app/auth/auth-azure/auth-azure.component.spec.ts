@@ -66,4 +66,17 @@ describe('AuthAzureComponent', function () {
     el.querySelector('#connection').nodeValue = 'test_connection';
     el.querySelector('#tenant').nodeValue = 'test_tenant';
     el.querySelector('#clientid').nodeValue = 'test_clientid';
-    el.que
+    el.querySelector('#resource').nodeValue = 'test_resource';
+    const button = fixture.debugElement.query(By.css('button'));
+    button.nativeElement.click();
+    fixture.detectChanges();
+    tick();
+    const de = fixture.debugElement.query(By.css('#error'));
+    el = de.nativeElement;
+    expect(el.innerText).toContain('Failed');
+  }));
+
+});
+
+class AuthServiceStub {
+  access
