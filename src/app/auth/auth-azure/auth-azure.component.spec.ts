@@ -57,4 +57,13 @@ describe('AuthAzureComponent', function () {
     expect(comp.login).toHaveBeenCalled();
   });
 
-  it('should receive error from form submission'
+  it('should receive error from form submission', fakeAsync(() => {
+    spyOn(comp, 'login').and.callFake(() => {
+      comp.error = true;
+      comp.errorMessage = 'Failed';
+    })
+    let el: HTMLElement = fixture.nativeElement;
+    el.querySelector('#connection').nodeValue = 'test_connection';
+    el.querySelector('#tenant').nodeValue = 'test_tenant';
+    el.querySelector('#clientid').nodeValue = 'test_clientid';
+    el.que
