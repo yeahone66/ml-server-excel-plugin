@@ -79,4 +79,18 @@ describe('AuthAzureComponent', function () {
 });
 
 class AuthServiceStub {
-  access
+  accessToken: string = null;
+
+  isAuthenticated() {
+    return this.accessToken != null;
+  }
+
+  loginAdal(connection: string, clientId: string, tenant: string, resource: string) {
+    // Implementation not needed
+  }
+
+};
+
+class MlsServiceStub {
+  // Implementation not needed
+}
