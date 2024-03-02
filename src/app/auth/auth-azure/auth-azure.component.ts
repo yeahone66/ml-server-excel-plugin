@@ -12,4 +12,19 @@ import { NgForm } from '@angular/forms';
 export class AuthAzureComponent implements OnInit {
 
     public config: {
-        connection: s
+        connection: string,
+        tenant: string,
+        clientid: string,
+        resource: string
+    };
+    public error: boolean;
+    public errorMessage: string;
+    
+    constructor(public router: Router, public authService: AuthService) {
+        this.error = false;
+    }
+
+    public ngOnInit() {
+        this.config = {
+            connection: '',
+     
