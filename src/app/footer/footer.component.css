@@ -229,3 +229,52 @@ ul {
 .input__submit {
   width: 100%;
   height: 30px;
+  color: #FFFFFF;
+  margin-top: 20px;
+  font-weight: 600;
+  margin-bottom: -8px;
+  background-color: #0078d7;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background ease 0.1s, color ease 0.1s; }
+  .input__submit:active, .input__submit:hover {
+    background: #006abe;
+    cursor: pointer; }
+  .input__submit:active {
+    background: #006abe;
+    -webkit-transform: scale3d(0.98, 0.98, 1);
+            transform: scale3d(0.98, 0.98, 1); }
+  .input__submit--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: not-allowed; }
+    .input__submit--disabled:active, .input__submit--disabled:hover {
+      background: transparent; }
+    .input__submit--disabled:active {
+      -webkit-transform: none;
+              transform: none; }
+
+.ms-Pivot {
+  overflow: hidden; }
+
+.ms-Pivot-content {
+  display: none;
+  margin-top: 20px; }
+
+.ms-Pivot-content.is-selected {
+  display: block; }
+
+.ms-Pivot-link {
+  margin-right: 0px;
+  line-height: 30px; }
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.ms-check {
+    padding: 0 20px;
+    margin-top: 10px;
+    width: calc(100% - 40px); }
+
