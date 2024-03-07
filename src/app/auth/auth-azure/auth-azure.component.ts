@@ -43,4 +43,10 @@ export class AuthAzureComponent implements OnInit {
     // all errors are handled by the AAD page.
     login(form: NgForm) {
         this.authService.loginAdal(form.value.connection, form.value.clientid, 
-            form.valu
+            form.value.tenant, form.value.resource);
+    }
+
+    get isLoggedIn() {
+        return this.authService.isAuthenticated();
+    }
+}
