@@ -37,4 +37,10 @@ export class AuthAzureComponent implements OnInit {
     // Uses the ADAL npm wrapper package to log the user in
     // This redirects the user to their AAD sign-in page if they gave a correct 
     // tenant If an incorrect tenant was given, AAD will tell them it doesn't 
-    // exist and they will have to re
+    // exist and they will have to reload the add-in in order to try again
+    // Note: All error handling here cannot be handled by our app currently 
+    // because of the redirect.  Until AAD redirects back to our app
+    // all errors are handled by the AAD page.
+    login(form: NgForm) {
+        this.authService.loginAdal(form.value.connection, form.value.clientid, 
+            form.valu
