@@ -32,4 +32,14 @@ describe('FooterComponent', function () {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(FooterComponent);
-    comp = 
+    comp = fixture.componentInstance;
+    authService = TestBed.get(AuthService);
+    mlsService = TestBed.get(MlsService);
+    fixture.detectChanges();
+  });
+
+  it('should create component', () => expect(comp).toBeDefined());
+
+  it('should contain ML Server branding', () => {
+    const de = fixture.debugElement.query(By.css('h1'));
+    const el: HTMLElement = de.nativeElement;
