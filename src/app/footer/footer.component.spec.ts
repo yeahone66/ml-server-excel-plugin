@@ -5,4 +5,18 @@ import { RouterLinkWithHref } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // Components
-import { FooterComponent } from './footer.component
+import { FooterComponent } from './footer.component';
+
+// Services
+import { AuthService } from '../services/auth.service';
+import { MlsService } from '../services/mls.service';
+
+describe('FooterComponent', function () {
+  let comp: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
+  let authService: AuthService;
+  let mlsService: MlsService;
+
+  beforeEach(async(() => {
+
+    TestBed.configureT
