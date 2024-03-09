@@ -19,4 +19,17 @@ describe('FooterComponent', function () {
 
   beforeEach(async(() => {
 
-    TestBed.configureT
+    TestBed.configureTestingModule({
+      declarations: [FooterComponent],
+      imports: [RouterTestingModule],
+      providers: [
+        { provide: AuthService, useClass: AuthServiceStub },
+        { provide: MlsService, useClass: MlsServiceStub }
+      ]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FooterComponent);
+    comp = 
