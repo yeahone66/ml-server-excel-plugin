@@ -43,3 +43,21 @@ describe('FooterComponent', function () {
   it('should contain ML Server branding', () => {
     const de = fixture.debugElement.query(By.css('h1'));
     const el: HTMLElement = de.nativeElement;
+
+    expect(el.innerText).toContain('ML Server');
+  })
+
+});
+
+class AuthServiceStub {
+  accessToken: string = null;
+
+  isAuthenticated() {
+    return this.accessToken != null;
+  }
+
+};
+
+class MlsServiceStub {
+  // Implementation not needed
+}
