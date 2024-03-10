@@ -12,4 +12,9 @@ import { MlsService } from '../services/mls.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public authService: AuthService, public mlsService: MlsService, private ro
+  constructor(public authService: AuthService, public mlsService: MlsService, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+}
