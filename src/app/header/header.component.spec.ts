@@ -5,4 +5,16 @@ import { RouterLinkWithHref } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // Components
-import
+import { HeaderComponent } from './header.component';
+
+// Services
+import { AuthService } from '../services/auth.service';
+import { MlsService } from '../services/mls.service';
+
+describe('HeaderComponent', function () {
+  let comp: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
+  let authService: AuthService;
+  let mlsService: MlsService;
+
+  befor
