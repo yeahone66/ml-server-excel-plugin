@@ -17,4 +17,18 @@ describe('HeaderComponent', function () {
   let authService: AuthService;
   let mlsService: MlsService;
 
-  befor
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [HeaderComponent],
+      imports: [RouterTestingModule],
+      providers: [
+        { provide: AuthService, useClass: AuthServiceStub },
+        { provide: MlsService, useClass: MlsServiceStub }
+      ]
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComp
