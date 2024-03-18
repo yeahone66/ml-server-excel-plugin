@@ -31,4 +31,15 @@ describe('HeaderComponent', function () {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComp
+    fixture = TestBed.createComponent(HeaderComponent);
+    comp = fixture.componentInstance;
+    authService = TestBed.get(AuthService);
+    mlsService = TestBed.get(MlsService);
+    fixture.detectChanges();
+  });
+
+  it('should create component', () => expect(comp).toBeDefined());
+
+  it('should not be authenticated', () => {
+    const state = authService.isAuthenticated();
+    exp
