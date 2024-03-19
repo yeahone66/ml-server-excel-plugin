@@ -42,4 +42,14 @@ describe('HeaderComponent', function () {
 
   it('should not be authenticated', () => {
     const state = authService.isAuthenticated();
-    exp
+    expect(state).toBe(false);
+  });
+
+  it('should be authenticated', () => {
+    authService.accessToken = 'test';
+    const state = authService.isAuthenticated();
+    expect(state).toBe(true);
+  });
+
+  it('should have a link to Cloud Authentication', () => {
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithH
