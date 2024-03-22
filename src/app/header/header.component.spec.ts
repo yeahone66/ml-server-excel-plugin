@@ -52,4 +52,13 @@ describe('HeaderComponent', function () {
   });
 
   it('should have a link to Cloud Authentication', () => {
-    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithH
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+
+    const index = debugElements.findIndex(de => de.properties['href'] === '/');
+    expect(index).toBeGreaterThan(-1);
+  })
+
+  it('should have a link to Local Authentication', () => {
+    const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
+
+    const index = debugElements.findIndex(de => de.properties['href'] === '/auth-adm
