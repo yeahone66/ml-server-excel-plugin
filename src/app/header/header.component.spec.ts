@@ -61,4 +61,21 @@ describe('HeaderComponent', function () {
   it('should have a link to Local Authentication', () => {
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
 
-    const index = debugElements.findIndex(de => de.properties['href'] === '/auth-adm
+    const index = debugElements.findIndex(de => de.properties['href'] === '/auth-admin');
+    expect(index).toBeGreaterThan(-1);
+  })
+
+});
+
+class AuthServiceStub {
+  accessToken: string = null;
+
+  isAuthenticated() {
+    return this.accessToken != null;
+  }
+
+};
+
+class MlsServiceStub {
+  // Implementation not needed
+}
