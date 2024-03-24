@@ -15,4 +15,17 @@ export class WebService {
     myPermissionOnService: string;
 }
 
-ex
+export class Parameter {
+    name: string;
+    type: string;
+}
+
+export class ExcelParameter {
+    name: string;
+    type: string;
+    binding: any;
+    range: string;
+    value: any;
+    labels: string[];
+    display: any[][];
+}
