@@ -1,3 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { AuthService } from './auth.ser
+import { AuthService } from './auth.service';
+import { AdalService } from 'ng2-adal/core';
+
+// Guard that determines whether the web service components are accessible based on whether the user is authenticated or not
+// If not, it reroutes them to authentication
+// Note: Refer to app.routes to see when it is used
+@Injectable()
+export class AuthGuard implements CanActivate {
+  constructor(private authServ
