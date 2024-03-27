@@ -8,4 +8,17 @@ import { AdalService } from 'ng2-adal/core';
 // Note: Refer to app.routes to see when it is used
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private authServ
+  constructor(private authService: AuthService, private router: Router) { }
+
+  canActivate() {
+
+    if (this.authService.isAuthenticated()) {
+      return true;
+
+    } else {
+      this.router.navigate(['']);
+      return false;
+
+    }
+  }
+}
