@@ -150,3 +150,41 @@ describe('AuthService Tests', () => {
 
             const authenticated = service.isAuthenticated();
             expect(authenticated === true);
+        })));
+
+        it('should expect authenticated to be false and token to be null after logout', async(inject([], () => {
+            backend.connections.subscribe((c: MockConnection) => c.mockRespond(response));
+
+            service.loginAdmin(fakeCon, fakeUser, fakePass).toPromise()
+                .then(data => {
+                    expect(data.length).toBe(fakeAuthData.length,
+                        'should have received all expected authentication data from a successful login');
+                })
+
+            service.logout();
+
+            const authenticated = service.isAuthenticated();
+            expect(authenticated === false);
+
+            const token = service.getToken()
+            expect(token == null);
+        })))
+    })
+})
+
+const authData = {
+    token_type: 'Bearer',
+    access_token: 'fake_access',
+    expires_in: 'fake_time',
+    expires_on: 'fake_expire',
+    refresh_token: 'fake_refresh'
+}
+
+// ERROR RESPONSE CODES TESTING
+// Implemented this class to fix a current issue with the MockConnection response never hitting the error catch block
+// It just extends the Response class so that I can combine it with Error
+// https://github.com/angular/angular/pull/8961
+class MockError extends Response implements Error {
+    name: any;
+    message: any;
+}
