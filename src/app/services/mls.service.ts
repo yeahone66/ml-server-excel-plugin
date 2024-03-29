@@ -14,4 +14,12 @@ import { WebService, ExcelParameter } from '../models/web-service';
 export class MlsService {
 
     // Boolean field for WebService and WebServices component templates to know whether a service has been selected or not
-    public serviceSelected = f
+    public serviceSelected = false;
+
+    constructor(private http: Http, private authService: AuthService) { }
+
+    // GET all services available to the user
+    getWebServices(): Observable<WebService[]> {
+        const connection = this.authService.connection + '/services';
+        // Add authorization header with jwt token
+        const token = this.authService.getToken();
