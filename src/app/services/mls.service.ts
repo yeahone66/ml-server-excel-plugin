@@ -23,3 +23,13 @@ export class MlsService {
         const connection = this.authService.connection + '/services';
         // Add authorization header with jwt token
         const token = this.authService.getToken();
+        const headers = new Headers({ 'Authorization': 'Bearer ' + token });
+        const options = new RequestOptions({ headers: headers });
+
+        // Get services from web service api endpoint
+        return this.http.get(connection, options)
+            .map((response: Response) => {
+                const data = response.json();
+                return data;
+            })
+       
