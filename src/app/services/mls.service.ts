@@ -32,4 +32,12 @@ export class MlsService {
                 const data = response.json();
                 return data;
             })
-       
+            .catch((error: Response) => {
+                /*WebServices Component is currently handling error messaging so
+                that the necessary rerouting can take place if needed to reauthenticate*/
+                return Observable.throw(error);
+            });
+    }
+
+    // POST to the selected service to retrieve an output
+    postWebServic
