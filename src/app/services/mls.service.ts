@@ -40,4 +40,8 @@ export class MlsService {
     }
 
     // POST to the selected service to retrieve an output
-    postWebServic
+    postWebServices(webService: WebService, inputParameters: ExcelParameter[]): Observable<any[]> {
+        const connection = this.authService.connection + '/api/' + webService.name + '/' + webService.version
+        // Add authorization header with jwt token
+        const token = this.authService.getToken();
+        const headers = new Headers({ 'Authorization': 'Bearer ' + to
