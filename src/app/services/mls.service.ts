@@ -51,4 +51,11 @@ export class MlsService {
         // Ensure a value exists
         if (inputParameters[0].value != null) {
             inputParameters.forEach((element: ExcelParameter) => {
-                // The Excel value format is [][], so it needs to be processed differently depending on the input data 
+                // The Excel value format is [][], so it needs to be processed differently depending on the input data type
+                if (element.type === 'data.frame') {
+                    // Processing data frame with generic labels c0, c1, c2, etc.
+                    let i = 0;
+                    const temp = {};
+                    while (i < element.value.length) {
+                        const label = element.labels[i]
+                        tem
