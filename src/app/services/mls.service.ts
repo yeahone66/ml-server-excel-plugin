@@ -44,4 +44,11 @@ export class MlsService {
         const connection = this.authService.connection + '/api/' + webService.name + '/' + webService.version
         // Add authorization header with jwt token
         const token = this.authService.getToken();
-        const headers = new Headers({ 'Authorization': 'Bearer ' + to
+        const headers = new Headers({ 'Authorization': 'Bearer ' + token });
+        const options = new RequestOptions({ headers: headers });
+        const body = {};
+
+        // Ensure a value exists
+        if (inputParameters[0].value != null) {
+            inputParameters.forEach((element: ExcelParameter) => {
+                // The Excel value format is [][], so it needs to be processed differently depending on the input data 
