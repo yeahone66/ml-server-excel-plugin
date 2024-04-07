@@ -76,4 +76,11 @@ export class MlsService {
                 .map(
                 (response: Response) => {
                     const data = response.json();
-           
+                    return data['outputParameters'];
+                })
+                .catch(
+                (error: Response) => {
+                    /*WebService Component is currently handling error messaging
+                    so that the necessary rerouting can take place if needed to reauthenticate*/
+                    return Observable.throw(error);
+ 
