@@ -67,4 +67,13 @@ export class MlsService {
                 } else if (element.type === 'matrix') {
                     body[element.name] = element.value;
                 } else {
-  
+                    body[element.name] = element.value[0][0];
+                }
+            });
+
+            // Get output from web service api endpoint
+            return this.http.post(connection, body, { headers: headers })
+                .map(
+                (response: Response) => {
+                    const data = response.json();
+           
