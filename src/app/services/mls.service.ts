@@ -58,4 +58,13 @@ export class MlsService {
                     const temp = {};
                     while (i < element.value.length) {
                         const label = element.labels[i]
-                        tem
+                        temp[label] = element.value[i];
+                        i++;
+                    }
+                    body[element.name] = temp;
+                } else if (element.type === 'vector') {
+                    body[element.name] = element.value[0];
+                } else if (element.type === 'matrix') {
+                    body[element.name] = element.value;
+                } else {
+  
