@@ -1,3 +1,14 @@
 <h2 class="ms-font-xl ms-fontWeight-semibold">{{service.name}}</h2>
 <!--Error message only displays if an error is triggered by an incorrect form submission-->
-<div class="ms-MessageBar ms-MessageBar--err
+<div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+    <div class="ms-MessageBar-content">
+        <div class="ms-MessageBar-icon">
+            <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+        </div>
+        <div class="ms-MessageBar-text">
+            {{errorMessage}}
+        </div>
+    </div>
+</div>
+<h4 class="ms-font-xl ms-fontWeight-light">Input Parameters</h4>
+<!--Service form populated by the service s
