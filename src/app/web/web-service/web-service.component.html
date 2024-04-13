@@ -11,4 +11,9 @@
     </div>
 </div>
 <h4 class="ms-font-xl ms-fontWeight-light">Input Parameters</h4>
-<!--Service form populated by the service s
+<!--Service form populated by the service selected from the web-services component-->
+<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Service Controls -->
+    <div formArrayName="inputParameters">
+        <ul class="ms-List">
+            <li class="ms-ListItem" tabindex="0" *ngFor="let parameter of serviceForm['controls']['inputParameters']['controls']; let i=inde
