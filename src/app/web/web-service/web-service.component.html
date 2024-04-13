@@ -19,4 +19,8 @@
             <li class="ms-ListItem" tabindex="0" *ngFor="let parameter of serviceForm['controls']['inputParameters']['controls']; let i=index" [formGroupName]="i">
                 <span class="ms-ListItem-primaryText">{{ serviceForm.value.inputParameters[i].name }}</span>
                 <span class="ms-ListItem-secondaryText" *ngIf="serviceForm.value.inputParameters[i].type != 'matrix' && serviceForm.value.inputParameters[i].type != 'vector' 
-                && serviceForm.value.input
+                && serviceForm.value.inputParameters[i].type != 'data.frame'; else range">Value: {{ serviceForm.value.inputParameters[i].value }}</span>
+                <ng-template #range>
+                    <span class="ms-ListItem-secondaryText">Range: {{ serviceForm.value.inputParameters[i].value }}</span>
+                </ng-template>
+                <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.
