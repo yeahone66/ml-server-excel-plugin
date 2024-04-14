@@ -23,4 +23,12 @@
                 <ng-template #range>
                     <span class="ms-ListItem-secondaryText">Range: {{ serviceForm.value.inputParameters[i].value }}</span>
                 </ng-template>
-                <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.
+                <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.value.inputParameters[i].type }}</span>
+                <button class="ms-Button" type="button" (click)="onClickInput(i)" [disabled]="submitted">
+                    <span class="ms-Button-label">Select Data</span> 
+                </button>
+            </li>
+        </ul>
+    </div>
+    <h4 class="ms-font-xl ms-fontWeight-light">Output Parameters</h4>
+   
