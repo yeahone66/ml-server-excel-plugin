@@ -34,4 +34,8 @@
     <div formArrayName="outputParameters">
         <ul class="ms-List">
             <li class="ms-ListItem" tabindex="0" *ngFor="let parameter of serviceForm['controls']['outputParameters']['controls']; let i=index" [formGroupName]="i">
-                <span class="ms-ListItem-primaryText">{{ serviceForm.value.outputParameters[i].nam
+                <span class="ms-ListItem-primaryText">{{ serviceForm.value.outputParameters[i].name }}</span>
+                <span class="ms-ListItem-secondaryText">Range: {{ serviceForm.value.outputParameters[i].value }}</span>
+                <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.value.outputParameters[i].type }}</span>
+                <button class="ms-Button" type="button" (click)="onClickOutput(i)" [disabled]="submitted">
+             
