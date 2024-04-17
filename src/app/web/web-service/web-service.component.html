@@ -38,4 +38,14 @@
                 <span class="ms-ListItem-secondaryText">Range: {{ serviceForm.value.outputParameters[i].value }}</span>
                 <span class="ms-ListItem-tertiaryText">Type: {{ serviceForm.value.outputParameters[i].type }}</span>
                 <button class="ms-Button" type="button" (click)="onClickOutput(i)" [disabled]="submitted">
-             
+                    <span class="ms-Button-label">Select Location</span> 
+                </button>
+            </li>
+        </ul>
+    </div>
+    <br>
+    <button class="ms-Button ms-Button--primary" type="submit" [disabled]="submitted"><span class="ms-Button-label">Submit</span></button>
+</form>
+
+<!--Uncomment for error debugging within Excel-->
+<!-- <p>{{feedback | json}}</p> -->
