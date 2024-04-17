@@ -284,3 +284,91 @@ export class WebServiceComponent implements OnInit, OnDestroy {
         .then(result => {
           this.inputParameters[id].binding = result;
         })
+        // Adds a handler to notify the component of any data changes to the bound range of cells
+        .then(() => this.excelService.addHandler(this.inputParameters[id].binding))
+        // Gets the range of cells from the binding
+        .then(() => this.excelService.getRange(name))
+        .then(result => {
+          this.inputParameters[id].range = result;
+        })
+        // Gets the value of the range of cells from the binding
+        .then(() => this.excelService.getValue(name))
+        .then((result: any[][]) => {
+          // If it's a data.frame, get the labels
+          if (this.inputParameters[id].type === 'data.frame') {
+            this.inputParameters[id].labels = result.shift();
+          }
+          // Sets the value after transposing from row/col to col/row
+          this.inputParameters[id].value = this.transpose(result);
+          // If a ranged parameter, show the range.  Otherwise, show the value to the user in the form field
+          if (this.inputParameters[id].type === 'data.frame' || this.inputParameters[id].type === 'vector'
+            || this.inputParameters[id].type === 'matrix') {
+            this.setFormText(id, this.inputParameters[id].range, true);
+          } else {
+            this.setFormText(id, this.inputParameters[id].value, true);
+          }
+        })
+        .then(() => {
+          this.toggleFields();
+        })
+        .catch((error) => {
+          this.feedback = error;
+          this.toggleFields();
+        })
+    } catch (error) {
+      this.feedback = error;
+      this.toggleFields();
+    }
+  }
+
+  // Called when an output parameter value field is clicked
+  // Disables all form fields and submission button
+  // Opens an Excel Prompt for the user to select a range
+  // If a range was selected, creates a binding to the selected range
+  // (Major difference between this and the onClickInput is that a handler is not created so
+  // resubmission will not automatically occur if the output range binding is changed -
+  // they will again have to manually click 'submit')
+  onClickOutput(id: number) {
+    try {
+      this.toggleFields();
+      const name = this.outputParameters[id].name.toString();
+      const type = this.outputParameters[id].type.toString();
+      // Triggers Excel Prompt and binds to the selected range with the name of the output parameter as its id
+      this.excelService.bind(name)
+        .then(result => {
+          this.outputParameters[id].binding = result;
+        })
+        // Gets the range of cells from the binding
+        .then(() => this.excelService.getRange(name))
+        .then(result => {
+          this.outputParameters[id].range = result;
+          this.setFormText(id, result, false);
+        })
+        .then(() => {
+          this.toggleFields();
+        })
+        .catch((error) => {
+          this.feedback = error;
+          this.toggleFields();
+        })
+    } catch (error) {
+      this.feedback = error;
+      this.toggleFields();
+    }
+  }
+
+  // Helper method for setting the form value field's text
+  public setFormText(parameterId: number, text: string, input: boolean) {
+    let paramGroup: string;
+    if (input) {
+      paramGroup = 'inputParameters';
+    } else {
+      paramGroup = 'outputParameters';
+    }
+    const param = (<FormArray>this.serviceForm.controls[paramGroup]).at(parameterId);
+    param.patchValue({
+      value: text
+    });
+  }
+
+}
