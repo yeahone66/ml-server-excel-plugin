@@ -1,3 +1,6 @@
 <div class="service-container">
     <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length > 0" class="ms-fontSize-xl">Select a service:</p>
-    <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="
+    <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="ms-fontSize-xl">No Services Available</p>
+    <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="ms-fontSize-xl">To publish services, refer to <a href="https://docs.microsoft.com/en-us/r-server/operationalize/how-to-deploy-web-service-publish-manage-in-r#publish-and-update-web-services">here</a></p>
+
+    <!--Error message and retry button to be
