@@ -3,4 +3,15 @@
     <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="ms-fontSize-xl">No Services Available</p>
     <p *ngIf="!isLoading && !mlsService.serviceSelected && services.length == 0" class="ms-fontSize-xl">To publish services, refer to <a href="https://docs.microsoft.com/en-us/r-server/operationalize/how-to-deploy-web-service-publish-manage-in-r#publish-and-update-web-services">here</a></p>
 
-    <!--Error message and retry button to be
+    <!--Error message and retry button to be displayed when retrieval of services failed-->
+    <div class="ms-MessageBar ms-MessageBar--error" *ngIf="error">
+        <div class="ms-MessageBar-content">
+            <div class="ms-MessageBar-icon">
+                <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+            </div>
+            <div class="ms-MessageBar-text">
+                {{errorMessage}}
+            </div>
+        </div>
+    </div>
+    <
