@@ -25,4 +25,11 @@
             <span class="ms-ListItem-tertiaryText">{{service.version}}</span>
             <span class="ms-ListItem-tertiaryText">{{service.creationTime | date:'medium'}}</span>
             <a class="ms-Link" (click)="selected(service)">Select</a>
-  
+        </li>
+    </ul>
+
+    <!--If a service is selected, the web-service component will be injected and shown-->
+    <div *ngIf="mlsService.serviceSelected">
+        <app-web-service [service]="selectedService"></app-web-service>
+    </div>
+</div>
