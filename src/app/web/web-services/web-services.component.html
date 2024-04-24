@@ -14,4 +14,10 @@
             </div>
         </div>
     </div>
-    <
+    <br>
+    <button class="ms-Button ms-Button--primary" type="submit" *ngIf="error" (click)="retry()"><span class="ms-Button-label">Retry</span></button>
+
+    <!-- List of services with distinctive attributes-->
+    <ul class="ms-List" *ngIf="!mlsService.serviceSelected">
+        <li class="ms-ListItem" tabindex="0" *ngFor="let service of services">
+            <span cla
