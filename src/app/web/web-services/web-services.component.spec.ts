@@ -18,4 +18,16 @@ import { MlsService } from '../../services/mls.service';
 import { WebService, Parameter, ExcelParameter } from '../../models/web-service';
 
 // Integration tests for the Web Services Component
-describe('WebServicesComponent', funct
+describe('WebServicesComponent', function () {
+  let comp: WebServicesComponent;
+  let fixture: ComponentFixture<WebServicesComponent>;
+  let authService: AuthService;
+  let mlsService: MlsService;
+
+  beforeEach(async(() => {
+
+    TestBed.configureTestingModule({
+      declarations: [WebServicesComponent],
+      imports: [HttpModule, RouterTestingModule],
+      providers: [
+        { provide: AuthService, useClass: AuthServiceS
