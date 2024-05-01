@@ -8,4 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Subject } from 'rxjs/Subject';
 
 // Components
-import { WebServicesComponent } from '.
+import { WebServicesComponent } from './web-services.component';
+
+// Services
+import { AuthService } from '../../services/auth.service';
+import { MlsService } from '../../services/mls.service';
+
+// Models
+import { WebService, Parameter, ExcelParameter } from '../../models/web-service';
+
+// Integration tests for the Web Services Component
+describe('WebServicesComponent', funct
