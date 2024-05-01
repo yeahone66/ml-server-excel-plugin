@@ -30,4 +30,15 @@ describe('WebServicesComponent', function () {
       declarations: [WebServicesComponent],
       imports: [HttpModule, RouterTestingModule],
       providers: [
-        { provide: AuthService, useClass: AuthServiceS
+        { provide: AuthService, useClass: AuthServiceStub },
+        { provide: MlsService, useClass: MlsServiceStub }
+      ],
+      schemas: [NO_ERRORS_SCHEMA] // Can use this to ignore unnecessary components for the tests
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(WebServicesComponent);
+    comp = fixture.componentInstance;
+    authService = TestBed.get(AuthSe
