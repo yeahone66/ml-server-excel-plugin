@@ -65,4 +65,13 @@ describe('WebServicesComponent', function () {
     expect(comp.services.length > 0);
   });
 
-  it('should 
+  it('should contain the name of the test service', () => {
+    const de = fixture.debugElement.query(By.css('.ms-ListItem-primaryText'));
+    const el = de.nativeElement;
+    expect(el.innerText).toContain('test_service');
+  });
+
+  it('should contain an error message due to failure to get services', () => {
+    comp.error = true;
+    fixture.detectChanges();
+    const de = fixture.debugElement.
