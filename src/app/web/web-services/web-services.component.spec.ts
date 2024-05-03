@@ -41,4 +41,13 @@ describe('WebServicesComponent', function () {
   beforeEach(() => {
     fixture = TestBed.createComponent(WebServicesComponent);
     comp = fixture.componentInstance;
-    authService = TestBed.get(AuthSe
+    authService = TestBed.get(AuthService);
+    mlsService = TestBed.get(MlsService);
+
+    // Create a test service upon initialization to provide in the list
+    spyOn(comp, 'ngOnInit').and.callFake(() => {
+      const testService: WebService = new WebService();
+      testService.name = 'test_service';
+      testService.description = 'test';
+      testService.version = '1.0.0';
+      comp.
