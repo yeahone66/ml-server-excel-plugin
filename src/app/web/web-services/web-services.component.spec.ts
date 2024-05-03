@@ -50,4 +50,19 @@ describe('WebServicesComponent', function () {
       testService.name = 'test_service';
       testService.description = 'test';
       testService.version = '1.0.0';
-      comp.
+      comp.services = new Array<WebService>();
+      comp.services.push(testService);
+      comp.isLoading = false;
+      comp.error = false;
+      comp.selectedService = undefined;
+    });
+    fixture.detectChanges();
+  });
+
+  it('should create component', () => expect(comp).toBeDefined());
+
+  it('should populate with the test service', () => {
+    expect(comp.services.length > 0);
+  });
+
+  it('should 
