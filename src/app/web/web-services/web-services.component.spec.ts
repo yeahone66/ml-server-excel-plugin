@@ -104,4 +104,6 @@ class MlsServiceStub {
   private subject = new Subject();
 
   getWebServices() {
-    r
+    return this.subject.asObservable();
+  }
+}
