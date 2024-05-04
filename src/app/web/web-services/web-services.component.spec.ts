@@ -83,4 +83,25 @@ describe('WebServicesComponent', function () {
     comp.error = true;
     fixture.detectChanges();
     spyOn(comp, 'getServices').and.callFake(() => {
-      comp.error = 
+      comp.error = false;
+    });
+
+    const button = fixture.debugElement.query(By.css('button'));
+    button.nativeElement.click();
+    fixture.detectChanges();
+    tick();
+
+    expect(comp.getServices).toHaveBeenCalled();
+  }))
+
+});
+
+class AuthServiceStub {
+  // Implementation not needed
+};
+
+class MlsServiceStub {
+  private subject = new Subject();
+
+  getWebServices() {
+    r
