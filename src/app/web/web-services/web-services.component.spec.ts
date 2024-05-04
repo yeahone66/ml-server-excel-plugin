@@ -74,4 +74,13 @@ describe('WebServicesComponent', function () {
   it('should contain an error message due to failure to get services', () => {
     comp.error = true;
     fixture.detectChanges();
-    const de = fixture.debugElement.
+    const de = fixture.debugElement.query(By.css('.ms-MessageBar-text'));
+    const el = de.nativeElement;
+    expect(el.innerText).toContain('There was an error in retrieving your services.')
+  });
+
+  it('should call getServices when button is pressed after failure', fakeAsync(() => {
+    comp.error = true;
+    fixture.detectChanges();
+    spyOn(comp, 'getServices').and.callFake(() => {
+      comp.error = 
